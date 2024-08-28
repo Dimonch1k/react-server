@@ -34,6 +34,10 @@ details summary {
   list-style: none;
 }
 
+.container {
+  padding: 20px 50px 50px;
+}
+
 .catalog-settings {
   display: flex;
   align-items: center;
@@ -53,5 +57,25 @@ details summary {
   &.rows {
     display: flex;
     flex-direction: column;
+  }
+}
+
+.shopping-cart {
+  position: relative;
+  margin-left: 5px;
+  height: 100%;
+  cursor: pointer;
+
+  &__counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 50%;
+    color: red;
+    z-index: 10;
+    height: min-content;
   }
 }

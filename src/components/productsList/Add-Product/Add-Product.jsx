@@ -4,20 +4,6 @@ import "../../../styles/components/productList/Add-Product/Add-Product.scss";
 
 import { Button, Modal } from "antd";
 
-// const initialValues = {
-//   name: "",
-//   info: "",
-//   price: "",
-//   expires: "",
-//   processor: "",
-//   more: {
-//     processor: "",
-//     ram: "",
-//     storage: "",
-//     display: "",
-//   },
-// };
-
 const AddProduct = ({ addNewProduct }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

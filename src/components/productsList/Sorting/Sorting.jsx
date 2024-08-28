@@ -13,9 +13,9 @@ const Sorting = ({ setCurrentSort, currentSort, sortingMap }) => {
         className="sorting__content"
         onChange={(e) => handleSetCurrentSort(e.target.value)}
       >
-        <option disabled selected hidden>
+        {/* <option disabled selected hidden>
           Sort by
-        </option>
+        </option> */}
         {sortingNames.map((sortingName) => (
           <option key={sortingName} className={currentSort && "active"}>
             {sortingName}

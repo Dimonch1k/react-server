@@ -2,14 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 
 import "../../../styles/components/productList/Product-Item/Product-Item.scss";
 import classNames from "classnames";
+import { Heart } from "lucide-react";
 
 const ProductItem = ({ image, info, price, expire, more, gridRows }) => {
+  const [favorite, setFavorite] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const detailsRef = useRef(null);
 
-  const toggleReadmore = () => {
-    setShowMore(!showMore);
-  };
+  const toggleFavorite = () => setFavorite(!favorite);
+  const toggleReadmore = () => setShowMore(!showMore);
 
   useEffect(() => {
     const closeDetailsOnScroll = () => {
@@ -20,13 +21,20 @@ const ProductItem = ({ image, info, price, expire, more, gridRows }) => {
 
     window.addEventListener("scroll", closeDetailsOnScroll);
 
-    return () => {
-      window.removeEventListener("scroll", closeDetailsOnScroll);
-    };
+    // return () => {
+    //   window.removeEventListener("scroll", closeDetailsOnScroll);
+    // };
   }, []);
 
   return (
     <ul className="product">
+      <div className="heart">
+        <Heart
+          fill={favorite ? "red" : "white"}
+          stroke={favorite ? "red" : "black"}
+          onClick={toggleFavorite}
+        />
+      </div>
       <div
         className={classNames("product__content", {
           "inline-content": gridRows,
@@ -36,7 +44,7 @@ const ProductItem = ({ image, info, price, expire, more, gridRows }) => {
           <img src={image} alt="product-image" />
         </li>
 
-        <div className={gridRows && "grid-rows-info"}>
+        <div className={classNames({ "grid-rows-info": gridRows })}>
           <li className="product__item product__info">{info}</li>
 
           <li

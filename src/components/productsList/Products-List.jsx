@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import ProductItem from "./Product-Item/Product-Item";
 import AddProduct from "./Add-Product/Add-Product";
 import Filters from "./Filters/Filters";
@@ -11,7 +11,8 @@ import classNames from "classnames";
 import { productList } from "./productList";
 
 import "../../styles/components/productList/Product-List.scss";
-import { Row } from "react-bootstrap";
+import { CarTaxiFront, ShoppingCart } from "lucide-react";
+import { Outlet } from "react-router-dom";
 
 const filterMap = {
   All: () => true,
@@ -34,10 +35,14 @@ const ProductsList = () => {
   const [currentFilter, setCurrentFilter] = useState("All");
   const [currentSort, setCurrentSort] = useState("Initially cheap");
   const [gridRows, setGridRows] = useState(false);
+  const [counter, setCounter] = useState(0);
 
-  const addNewProduct = (product) => {
-    setProducts([...products, product]);
-  };
+  const addNewProduct = useCallback(
+    (product) => {
+      setProducts((products) => [...products, product]);
+    },
+    [setProducts]
+  );
 
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));
@@ -45,8 +50,8 @@ const ProductsList = () => {
 
   return (
     <div>
-      <Container className="p-3">
-        <Row className="catalog-settings">
+      <div className="container">
+        <div className="catalog-settings">
           {/* Add Product */}
           <AddProduct addNewProduct={addNewProduct} />
 
@@ -66,8 +71,17 @@ const ProductsList = () => {
 
           {/* Product list view */}
           <ListGrid gridRows={gridRows} setGridRows={setGridRows} />
-        </Row>
 
+          {/* Shopping Cart */}
+          <div className="shopping-cart">
+            <ShoppingCart />
+            <div className="shopping-cart__counter">
+              <span>{counter}</span>
+            </div>
+          </div>
+        </div>
+
+        <Outlet />
         <div className={classNames("product-list", { rows: gridRows })}>
           {products
             .filter(filterMap[currentFilter])
@@ -84,7 +98,7 @@ const ProductsList = () => {
               />
             ))}
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

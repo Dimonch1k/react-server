@@ -20,6 +20,7 @@ const LangSelector = () => {
       {languages.map((lng) => {
         return (
           <button
+            key={`${lng.code}`}
             className={
               lng.code === i18n.language
                 ? "lang-selector__btn selected"

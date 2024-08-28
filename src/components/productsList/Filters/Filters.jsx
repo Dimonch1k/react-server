@@ -12,10 +12,10 @@ const Filters = ({ setCurrentFilter, currentFilter, filterMap }) => {
         className="filters__content"
         onChange={(e) => handleSetCurrentFilter(e.target.value)}
       >
-        <option disabled selected hidden >
+        {/* <option disabled selected hidden >
           Filter by
-        </option>
-        
+        </option> */}
+
         {filterNames.map((filterName) => (
           <option key={filterName} className={currentFilter && "active"}>
             {filterName}
