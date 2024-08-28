@@ -122,9 +122,8 @@
     &__hidden-inner {
       @include col_fs(#797878, 12px);
 
-      width: 100%;
-      text-align: center;
       padding: 5px 10px;
+      text-align: center;
       background-color: #fff;
 
       span {

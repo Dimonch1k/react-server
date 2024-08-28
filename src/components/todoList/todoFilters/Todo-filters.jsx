@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import "../../../styles/components/todoList/todoFilters/Todo-filters.scss";
 
 const TodoFilters = ({ setCurrentFilter, currentFilter, filtersMap }) => {
   const filterNames = Object.keys(filtersMap); // [ All, Done, Todo ]
 
-  const handleSetCurrentFilter = (filterName) => {
-    setCurrentFilter(filterName);
-  };
+  const handleSetCurrentFilter = useCallback(
+    (filterName) => {
+      setCurrentFilter(filterName);
+    },
+    [setCurrentFilter]
+  );
 
   return (
     <div className="filter">

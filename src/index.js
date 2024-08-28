@@ -1,27 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 
-import TodoList from "./components/todoList/Todo-List";
-import ProductList from "./components/productsList/Products-List";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/todo",
-        element: <TodoList />,
-      },
-      {
-        path: "/product-list",
-        element: <ProductList />,
-      },
-    ],
-  },
-]);
+import router from "./pages/routes/routes";
+import "./i18n.js"; // Magic Ball component
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

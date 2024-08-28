@@ -15,6 +15,7 @@ const Filters = ({ setCurrentFilter, currentFilter, filterMap }) => {
         <option disabled selected hidden >
           Filter by
         </option>
+        
         {filterNames.map((filterName) => (
           <option key={filterName} className={currentFilter && "active"}>
             {filterName}

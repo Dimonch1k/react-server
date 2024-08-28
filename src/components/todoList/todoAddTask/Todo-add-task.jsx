@@ -9,9 +9,9 @@ const TodoAddTask = ({ addTask }) => {
   const [title, setTitle] = useState("");
 
   const addTaskHandler = useCallback(
-    (newTaskTitle) => {
-      if (newTaskTitle.trim().length < 5) return;
-      addTask(newTaskTitle);
+    (title) => {
+      if (title.trim().length < 5) return;
+      addTask(title);
       setTitle("");
     },
     [addTask]
@@ -28,6 +28,9 @@ const TodoAddTask = ({ addTask }) => {
         placeholder="Enter your next task"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") addTaskHandler(title);
+        }}
       />
 
       <button className="add-task__btn" onClick={() => addTaskHandler(title)}>

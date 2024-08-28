@@ -11,6 +11,20 @@ import classNames from "classnames";
 import { productList } from "./productList";
 
 import "../../styles/components/productList/Product-List.scss";
+import { Row } from "react-bootstrap";
+
+const filterMap = {
+  All: () => true,
+  Expires: (product) => product.expire,
+  "In Stock": (product) => !product.expire,
+};
+
+const sortingMap = {
+  "Initially cheap": (a, b) => a.price - b.price,
+  "Initially expensive": (a, b) => b.price - a.price,
+  "In stock": (a, b) => a.expire - b.expire,
+  Expires: (a, b) => b.expire - a.expire,
+};
 
 const ProductsList = () => {
   const [products, setProducts] = useState(() => {
@@ -26,26 +40,13 @@ const ProductsList = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
-
-  const filterMap = {
-    All: () => true,
-    Expires: (product) => product.expire,
-    "In Stock": (product) => !product.expire,
-  };
-
-  const sortingMap = {
-    "Initially cheap": (a, b) => a.price - b.price,
-    "Initially expensive": (a, b) => b.price - a.price,
-    "In stock": (a, b) => a.expire - b.expire,
-    Expires: (a, b) => b.expire - a.expire,
-  };
 
   return (
     <div>
       <Container className="p-3">
-        <div className="catalog-settings">
+        <Row className="catalog-settings">
           {/* Add Product */}
           <AddProduct addNewProduct={addNewProduct} />
 
@@ -65,7 +66,7 @@ const ProductsList = () => {
 
           {/* Product list view */}
           <ListGrid gridRows={gridRows} setGridRows={setGridRows} />
-        </div>
+        </Row>
 
         <div className={classNames("product-list", { rows: gridRows })}>
           {products

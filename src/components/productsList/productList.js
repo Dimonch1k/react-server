@@ -1,12 +1,12 @@
-import hpPavilionPlus14 from "../../images/hp-pavilion-plus-14.png";
-import asusTufGaming15 from "../../images/asus-tuf-gaming-15.png";
-import acerAspire7 from "../../images/acer-aspire-7.png";
-import lenovoIdeapadGaming3 from "../../images/lenovo-ideapad-gaming3.png";
-import lenovoThinkbook16 from "../../images/lenovo-thinkbook16.png";
-import hpVictusGaming16 from "../../images/hp-victus-gaming-16.png";
-import macbookAir13M2 from "../../images/macbook-air-13.6-m2.png";
-import redmibookPro14 from "../../images/redmi-book-pro-14.png";
-import macbookPro14M2Pro from "../../images/macbook-pro-14-m2-pro.png";
+import hpPavilionPlus14 from "../../images/productList/hp-pavilion-plus-14.png";
+import asusTufGaming15 from "../../images//productList/asus-tuf-gaming-15.png";
+import acerAspire7 from "../../images//productList/acer-aspire-7.png";
+import lenovoIdeapadGaming3 from "../../images//productList/lenovo-ideapad-gaming3.png";
+import lenovoThinkbook16 from "../../images//productList/lenovo-thinkbook16.png";
+import hpVictusGaming16 from "../../images//productList/hp-victus-gaming-16.png";
+import macbookAir13M2 from "../../images//productList/macbook-air-13.6-m2.png";
+import redmibookPro14 from "../../images//productList/redmi-book-pro-14.png";
+import macbookPro14M2Pro from "../../images//productList/macbook-pro-14-m2-pro.png";
 
 export const productList = [
   {

@@ -1,6 +1,6 @@
 import { useReducer, useState, useEffect, useCallback } from "react";
 import { taskList } from "./taskList";
-import todoReducer, { actionTypes } from "../../reducers/todoReducer";
+import todoReducer, { actionTypes } from "../../pages/reducers/todoReducer";
 
 import "../../styles/components/todoList/Todo.scss";
 

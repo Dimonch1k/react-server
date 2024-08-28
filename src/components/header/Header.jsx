@@ -1,20 +1,26 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { House, Space } from "lucide-react";
 import "../../styles/components/header/Header.scss";
+import { useContext } from "react";
 
 const Header = () => {
   const location = useLocation();
+  // const {theme, toggleTheme} = useContext(ThemeContext);
 
   return (
     <header>
       <nav>
-        {location.pathname !== "/" && <NavLink to="/">Home</NavLink>}
-        {location.pathname !== "/todo" && (
-          <NavLink to="todo">Todo List</NavLink>
-        )}
-        {location.pathname !== "/product-list" && (
-          <NavLink to="product-list">Product List</NavLink>
-        )}
+        <NavLink to="/">
+          <House />
+        </NavLink>
+        <NavLink to="todo">Todo List</NavLink>
+        <NavLink to="product-list">Product List</NavLink>
+        <NavLink to="magic-ball">Magic Ball</NavLink>
+        <NavLink to="users">Users</NavLink>
+        {/* <NavLink to="user/:id">User</NavLink> */}
       </nav>
+
+      {/* <Space size={"middle"}></Space> */}
     </header>
   );
 };
