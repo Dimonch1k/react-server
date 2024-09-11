@@ -1,0 +1,23 @@
+.shopping-cart {
+  border-color: 1px solid black;
+  padding: 2px 10px;
+}
+
+.shopping-cart {
+  margin-left: 5px;
+  height: 100%;
+  cursor: pointer;
+
+  &__counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 50%;
+    color: red;
+    z-index: 10;
+    height: min-content;
+  }
+}
